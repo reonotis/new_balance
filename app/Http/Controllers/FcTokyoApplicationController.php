@@ -64,7 +64,7 @@ class FcTokyoApplicationController extends Controller
         if (!preg_match(ZENKAKUKANA, $request->f_read)) {
             throw new \Exception('ヨミカタは全角カナで入力してください');
         }
-        dd("強制");
+        throw new \Exception('強制');
     }
 
 }
