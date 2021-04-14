@@ -11,10 +11,10 @@
         <div class="col-md-8">
             @if (session('status'))
                 <div class="alert alert-danger" role="alert">
-                    {{ session('status') }}
+                    {!! session('status') !!}
                 </div>
             @endif
-            <form action="{{route('FcTokyo.aplication')}}" method="post">
+            <form action="{{route('fcTokyo.aplication')}}" method="post">
                 @csrf
                 <div class="itemRow">
                     <div class="itemTitle">氏名</div>

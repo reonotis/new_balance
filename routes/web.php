@@ -13,10 +13,21 @@
 
 Route::get('/', function () {
     // return view('welcome');
+    return redirect()->action('/login');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/fc_tokyo', 'FcTokyoApplicationController@index');
-Route::post('a/a', 'FcTokyoApplicationController@aplication')->name('FcTokyo.aplication');
+Route::post('a/a', 'FcTokyoApplicationController@aplication')->name('fcTokyo.aplication');
+
+
+
+
+
+// admin
+Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
+    Route::get('/', 'AdminController@index')->name('admin.index');
+});
+
