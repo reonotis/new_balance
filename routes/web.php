@@ -20,7 +20,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/fc_tokyo', 'FcTokyoApplicationController@index');
-Route::post('a/a', 'FcTokyoApplicationController@aplication')->name('fcTokyo.aplication');
+Route::post('fc_tokyo/aplication', 'FcTokyoApplicationController@aplication')->name('fcTokyo.aplication');
+Route::get('fc_tokyo/complete', 'FcTokyoApplicationController@complete')->name('fcTokyo.complete');
 
 
 

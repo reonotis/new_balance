@@ -61,6 +61,7 @@ class FcTokyoApplicationController extends Controller
             // reportメール
             $this->sendReportMail();
 
+            return redirect()->action('FcTokyoApplicationController@complete');
             return view('fc_tokyo.index');
 
         } catch (\Exception $e) {
@@ -187,4 +188,13 @@ class FcTokyoApplicationController extends Controller
             ->subject('申し込みがありました');
         });
     }
+
+
+    /**
+     * 申し込みフォームを表示
+     */
+    public function complete(){
+        return view('fc_tokyo.complete');
+    }
+
 }
