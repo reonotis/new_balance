@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-body">
                     <div class="">
-                        <a href="">FC_TOKYO</a>
+                        <a href="{{ route('admin.fc_tokyo') }}">FC_TOKYO</a>
                     </div>
                 </div>
             </div>

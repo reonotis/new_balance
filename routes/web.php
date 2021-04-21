@@ -30,5 +30,6 @@ Route::get('fc_tokyo/complete', 'FcTokyoApplicationController@complete')->name('
 // admin
 Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
     Route::get('/', 'AdminController@index')->name('admin.index');
+    Route::get('/fc_tokyo', 'Admin_FC_TOKYO_Controller@index')->name('admin.fc_tokyo');
 });
 

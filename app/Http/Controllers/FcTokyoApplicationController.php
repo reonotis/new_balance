@@ -140,18 +140,19 @@ class FcTokyoApplicationController extends Controller
      */
     public function insertApplication(){
         $fc_tokyo = new fc_tokyo_application;
-        $fc_tokyo ->f_name = $this->_f_name;
-        $fc_tokyo ->l_name = $this->_l_name;
-        $fc_tokyo ->f_read = $this->_f_read;
-        $fc_tokyo ->l_read = $this->_l_read;
-        $fc_tokyo ->zip21  = $this->_zip21;
-        $fc_tokyo ->zip22  = $this->_zip22;
-        $fc_tokyo ->pref21 = $this->_pref21;
-        $fc_tokyo ->addr21 = $this->_addr21;
-        $fc_tokyo ->strt21 = $this->_strt21;
-        $fc_tokyo ->tel    = $this->_tel;
-        $fc_tokyo ->email  = $this->_email;
-        $fc_tokyo ->save();
+        $fc_tokyo->f_name = $this->_f_name;
+        $fc_tokyo->l_name = $this->_l_name;
+        $fc_tokyo->f_read = $this->_f_read;
+        $fc_tokyo->l_read = $this->_l_read;
+        $fc_tokyo->zip21  = $this->_zip21;
+        $fc_tokyo->zip22  = $this->_zip22;
+        $fc_tokyo->pref21 = $this->_pref21;
+        $fc_tokyo->addr21 = $this->_addr21;
+        $fc_tokyo->strt21 = $this->_strt21;
+        $fc_tokyo->size   = $this->_size;
+        $fc_tokyo->tel    = $this->_tel;
+        $fc_tokyo->email  = $this->_email;
+        $fc_tokyo->save();
     }
 
     /**
