@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "55c3f3370df3d194a130bd4d8bd941dd",
+    "content-hash": "d3ddeac09d8cae190e13d70ee578cd24",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v3.5.5",
+            "version": "v3.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "6420113d90bb746423fa70b9940e9e7c26ebc121"
+                "reference": "70b89754913fd89fef16d0170a91dbc2a5cd633a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/6420113d90bb746423fa70b9940e9e7c26ebc121",
-                "reference": "6420113d90bb746423fa70b9940e9e7c26ebc121",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/70b89754913fd89fef16d0170a91dbc2a5cd633a",
+                "reference": "70b89754913fd89fef16d0170a91dbc2a5cd633a",
                 "shasum": ""
             },
             "require": {
@@ -77,15 +77,19 @@
             ],
             "support": {
                 "issues": "https://github.com/barryvdh/laravel-debugbar/issues",
-                "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.5.5"
+                "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.6.2"
             },
             "funding": [
+                {
+                    "url": "https://fruitcake.nl",
+                    "type": "custom"
+                },
                 {
                     "url": "https://github.com/barryvdh",
                     "type": "github"
                 }
             ],
-            "time": "2021-04-07T11:19:20+00:00"
+            "time": "2021-06-14T14:29:26+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

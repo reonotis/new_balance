@@ -18,6 +18,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// admin
+Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
+    Route::get('/', 'AdminController@index')->name('admin.index');
+    Route::get('/fc_tokyo', 'Admin_FC_TOKYO_Controller@index')->name('admin.fc_tokyo');
+});
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/fc_tokyo', 'FcTokyoApplicationController@index');
 Route::post('fc_tokyo/aplication', 'FcTokyoApplicationController@aplication')->name('fcTokyo.aplication');
@@ -27,9 +34,7 @@ Route::get('fc_tokyo/complete', 'FcTokyoApplicationController@complete')->name('
 
 
 
-// admin
-Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
-    Route::get('/', 'AdminController@index')->name('admin.index');
-    Route::get('/fc_tokyo', 'Admin_FC_TOKYO_Controller@index')->name('admin.fc_tokyo');
+Route::group(['prefix'=>'why_you_run'], function(){
+    Route::get('/index', 'WhyYouRunController@index')->name('why_you_run.index');
+    Route::post('/index', 'WhyYouRunController@index')->name('why_you_run.index');
 });
-
