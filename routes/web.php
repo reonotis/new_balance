@@ -35,6 +35,6 @@ Route::get('fc_tokyo/complete', 'FcTokyoApplicationController@complete')->name('
 
 
 Route::group(['prefix'=>'why_you_run'], function(){
-    Route::get('/index', 'WhyYouRunController@index')->name('why_you_run.index');
+    Route::get('/', 'WhyYouRunController@index')->name('why_you_run.index');
     Route::post('/register', 'WhyYouRunController@register')->name('why_you_run.register');
 });
