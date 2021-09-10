@@ -177,3 +177,12 @@ input::placeholder{
   color: #ddd;
 }
 
+
+#image_preview{
+  max-width: 120px;
+  object-fit: cover;
+}
+#image_preview>img{
+  width: 120px;
+  max-width: 120px;
+}

@@ -15,6 +15,7 @@ class CreateWhyYouRunsTable extends Migration
     {
         Schema::create('why_you_runs', function (Blueprint $table) {
             $table->bigIncrements('id')                    ->comment('ID');
+            $table->string('coupon_code')                  ->comment('クーポンコード');
             $table->string('f_name')                       ->comment('苗字');
             $table->string('l_name')                       ->comment('名前');
             $table->string('f_read')                       ->comment('ミョウジ');
@@ -27,6 +28,7 @@ class CreateWhyYouRunsTable extends Migration
             $table->string('pref21')           ->nullable()->comment('都道府県');
             $table->string('addr21')           ->nullable()->comment('市区町村');
             $table->string('strt21')           ->nullable()->comment('所在');
+            $table->string('img_pass')                     ->comment('画像パス');
 
             $table->timestamp('created_at')    ->default(DB::raw('CURRENT_TIMESTAMP'))->comment('作成日時')	;
             $table->timestamp('updated_at')    ->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'))->comment('更新日時');
