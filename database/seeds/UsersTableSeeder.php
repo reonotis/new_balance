@@ -17,9 +17,9 @@ class UsersTableSeeder extends Seeder
                 'email' => 'fujisawa@reonotis.jp',
                 'password' => Hash::make('reonotis'),
             ],[
-                'name' => 'インストラクターB',
-                'email' => 'nbrun@fluss.co.jp',
-                'password' => Hash::make('test'),
+                'name' => '平瀬 尚久',
+                'email' => 'hirase@fluss.co.jp',
+                'password' => Hash::make('fluss'),
             ]
         ]);
     }

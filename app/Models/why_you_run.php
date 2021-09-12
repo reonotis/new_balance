@@ -45,4 +45,22 @@ class why_you_run extends Model
         return true;
     }
 
+    /**
+     *
+     *
+     * @return void
+     */
+    public static function getApplyList(){
+
+        $result = self::select('*')
+        ->where('delete_flag', 0)
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        return $result;
+    }
+
+
+
+
 }

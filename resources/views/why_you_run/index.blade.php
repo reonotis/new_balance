@@ -9,6 +9,9 @@
             </div>
         </div>
         <div class="col-md-8">
+            <div class="card-header headerSupport">
+                10K charge への申し込みクーポンコードの獲得をご希望の方は、下記より必要事項をご記入の上、5000円(税込み)以上購入のレシート画像を添付してお申し込みください。
+            </div>
             @if (session('status'))
                 <div class="alert alert-danger" role="alert">
                     {!! session('status') !!}

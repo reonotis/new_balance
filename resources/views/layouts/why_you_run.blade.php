@@ -13,10 +13,12 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/why_you_run.js') }}" defer></script>
     <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>	<!-- 住所入力 -->
+    <script src="http://code.jquery.com/jquery-1.9.0.js" type="text/javascript" ></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

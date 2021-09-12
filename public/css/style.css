@@ -1,0 +1,62 @@
+.listContainer{
+  margin: 0 10px;
+}
+
+.apply_list{
+  padding: 10px;
+}
+.goBack{
+  float: right;
+}
+
+.name_read{
+  font-size: 0.8em;
+}
+
+
+.thumbnail_imgs{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.thumbnail_imgs>img{
+  width: 100px;
+  height: 100px;
+}
+.why_you_run_receipt{
+  position:fixed;
+  top: 0;
+  width:100vw;
+  height: 100vh;
+  background :#3b3b3b73;
+  display: none;
+}
+.why_you_run_receipt_img{
+  position: relative;
+	width: 95%;
+	max-width: 600px;
+	margin: 50px auto;
+  display: flex;
+  justify-content: center;
+}
+.why_you_run_receipt_img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#modal_close{
+  position: absolute;
+  height:40px;
+  right: -20px;
+  top:-20px;
+  padding: 0 10px;
+  font-size: 1.0em;
+  background: #111;
+  color: #fff;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

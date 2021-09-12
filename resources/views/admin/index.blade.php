@@ -9,8 +9,11 @@
                     応募サイト一覧
                 </div>
                 <div class="card-body">
-                    <div class="">
+                    <div class="apply_list">
                         <a href="{{ route('admin.fc_tokyo') }}">FC_TOKYO</a>
+                    </div>
+                    <div class="apply_list">
+                        <a href="{{ route('admin.why_you_run') }}">Why you run</a>
                     </div>
                 </div>
             </div>
