@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'new_balance') }}</title>
+    <title>new_balance why you run キャンペーン</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
