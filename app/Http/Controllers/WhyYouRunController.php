@@ -192,6 +192,26 @@ class WhyYouRunController extends Controller
     /**
      * レポートメールを送信
      */
+    public function sendThankYouMail(){
+        $data = [
+            "name" => $this->_f_name . " " .$this->_l_name,
+            "read" => $this->_f_read . " " .$this->_l_read,
+            "zip"  => $this->_zip21 . "-" .$this->_zip22 ,
+            "streetAddress"  => $this->_pref21 . "" .$this->_addr21 . "" .$this->_strt21 ,
+            "tel"  => $this->_tel,
+            "email"  => $this->_email,
+            "url"  => url('').'/admin'
+        ];
+        Mail::send('emails.why you run_reportMail', $data, function($message){
+            $message->to($this->_secretariat)
+            ->bcc("fujisawareon@yahoo.co.jp")
+            ->subject('お申し込みが完了しました。');
+        });
+    }
+
+    /**
+     * レポートメールを送信
+     */
     public function sendReportMail(){
         $data = [
             "name" => $this->_f_name . " " .$this->_l_name,
