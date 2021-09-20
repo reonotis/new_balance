@@ -8,10 +8,6 @@ use Illuminate\Support\Facades\DB;
 use InterventionImage;
 use Mail;
 
-define('ZENKAKUKANA', '/^[ァ-ヶー]+$/u');
-define('MAILADDRESS', '/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/');
-define('DENWABANGOU', '/^[0-9]{2,4}-[0-9]{2,4}-[0-9]{3,4}$/');
-define('BIRTHDAY', '/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/');
 
 class WhyYouRunController extends Controller
 {
@@ -36,6 +32,10 @@ class WhyYouRunController extends Controller
 	protected $_errorMSG = [];
 
 	protected $_secretariat = "";
+
+	function __construct()	{
+        $this->_secretariat = config('mail.secretariat');
+	}
 
     /**
      * Show the application dashboard.
@@ -74,14 +74,14 @@ class WhyYouRunController extends Controller
                 throw new \Exception($errorMessage);
             }
 
-            // // thank youメール
-            // $this->sendThankYouMail();
+            // thank youメール
+            $this->sendThankYouMail();
 
-            // // reportメール
-            // $this->sendReportMail();
+            // reportメール
+            $this->sendReportMail();
 
             DB::commit();
-            return redirect()->action('FcTokyoApplicationController@complete');
+            return redirect()->action('WhyYouRunController@complete');
         } catch (\Exception $e) {
             DB::rollback();
             echo $e->getMessage();
@@ -94,17 +94,16 @@ class WhyYouRunController extends Controller
      */
     public function checkValidation($request){
         $this->_errorMSG = [];
-
         if (!$request->f_name) $this->_errorMSG[] = "苗字を入力してください";
         if (!$request->l_name) $this->_errorMSG[] = "名前を入力してください";
         if (!$request->f_read){
             $this->_errorMSG[] = "ミョウジを入力してください";
-        }else if(!preg_match(ZENKAKUKANA, $request->f_read)) {
+        }else if(!preg_match(config('app.ZENKAKUKANA'), $request->f_read)) {
             $this->_errorMSG[] = "ミョウジは全角カナで入力してください";
         }
         if (!$request->l_read){
             $this->_errorMSG[] = "ナマエを入力してください";
-        }else if(!preg_match(ZENKAKUKANA, $request->l_read)){
+        }else if(!preg_match(config('app.ZENKAKUKANA'), $request->l_read)){
             $this->_errorMSG[] = "ナマエは全角カナで入力してください";
         }
 
@@ -113,9 +112,9 @@ class WhyYouRunController extends Controller
         if (!$request->addr21) $this->_errorMSG[] = "市区町村を入力してください";
         if (!$request->strt21) $this->_errorMSG[] = "番地を入力してください";
 
-        if (!preg_match(DENWABANGOU, $request->tel)) $this->_errorMSG[] = "電話番号は市外局番から-(ハイフン)を含めて入力してください";
+        if (!preg_match(config('app.DENWABANGOU'), $request->tel)) $this->_errorMSG[] = "電話番号は市外局番から-(ハイフン)を含めて入力してください";
 
-        if (!preg_match(MAILADDRESS, $request->email1)){
+        if (!preg_match(config('app.MAILADDRESS'), $request->email1)){
             $this->_errorMSG[] = "メールアドレスを正しく入力してください";
         }else if($request->email1 <> $request->email2){
             $this->_errorMSG[] = "メールアドレスが確認用と一致していません";
@@ -154,7 +153,7 @@ class WhyYouRunController extends Controller
         if(!$file)throw new \Exception("ファイルが指定されていません");
 
         // 登録可能な拡張子か確認して取得する
-        $extension = $this->checkFileExtntion($file);
+        $extension = $this->checkFileExtension($file);
 
         // ファイル名の作成 => wyr_ {日時} . {拡張子}
         $this->_baseFileName = sprintf(
@@ -180,7 +179,7 @@ class WhyYouRunController extends Controller
     /**
      * 渡されたファイルが登録可能な拡張子か確認するしてOKなら拡張子を返す
      */
-    public function checkFileExtntion($file){
+    public function checkFileExtension($file){
         // 渡された拡張子を取得
         $extension =  $file->extension();
         if(! in_array($extension, $this->_fileExtntion)){
@@ -188,6 +187,33 @@ class WhyYouRunController extends Controller
             throw new \Exception("登録できる画像の拡張子は". $fileExtntion ."のみです。");
         }
         return $file->extension();
+    }
+
+    /**
+     * レポートメールを送信
+     */
+    public function sendReportMail(){
+        $data = [
+            "name" => $this->_f_name . " " .$this->_l_name,
+            "read" => $this->_f_read . " " .$this->_l_read,
+            "zip"  => $this->_zip21 . "-" .$this->_zip22 ,
+            "streetAddress"  => $this->_pref21 . "" .$this->_addr21 . "" .$this->_strt21 ,
+            "tel"  => $this->_tel,
+            "email"  => $this->_email,
+            "url"  => url('').'/admin'
+        ];
+        Mail::send('emails.why you run_reportMail', $data, function($message){
+            $message->to($this->_secretariat)
+            ->bcc("fujisawareon@yahoo.co.jp")
+            ->subject('申し込みがありました');
+        });
+    }
+
+    /**
+     *
+     */
+    public function complete(){
+        return view('why_you_run.complete');
     }
 
 }
