@@ -1,4 +1,4 @@
-@extends('layouts.why_you_run')
+@extends('layouts.why_you_run_quality')
 
 @section('content')
 <div class="container">
@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card-body">
                 <div class="card-body_title">
-                    応募が完了しました。
+                    品質保証キャンペーンへの応募が完了しました。
                 </div>
 
                 入力したメールアドレスに通知メールを送信しておりますのでご確認ください

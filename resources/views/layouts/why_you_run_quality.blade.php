@@ -22,7 +22,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/why_you_run.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/why_you_run_quality.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('img/logo/favicon.ico') }}">
 
 </head>

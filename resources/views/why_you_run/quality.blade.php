@@ -1,4 +1,4 @@
-@extends('layouts.why_you_run')
+@extends('layouts.why_you_run_quality')
 
 @section('content')
 <div class="container">
@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card-header">
 
-                10K CHARGE<br class="brSp">キャンペーン<br class="brSp">応募フォーム
+                品質保証キャンペーン<br class="brSp">応募フォーム
                 <!-- <div class="ribbon18-content" >
                     <div class="ribbon18" ></div>
                 </div> -->
@@ -20,7 +20,7 @@
                 </div>
             @endif
             <div class="card-body">
-                <form action="{{ route('why_you_run.register') }} " method="post"  enctype="multipart/form-data" >
+                <form action="{{ route('why_you_run_quality.register') }} " method="post"  enctype="multipart/form-data" >
                     @csrf
                     <div class="itemRow">
                         <div class="itemTitle">氏名</div>
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="itemRow">
+                    <div class="itemRow">
                         <div class="itemTitle">住所</div>
                         <div class="itemContent">
                             <div class="inputZip">
@@ -53,13 +53,13 @@
                             </div>
                             <input type="text" id="strt21" name="strt21" value="{{ old('strt21') }}" class="form-control" placeholder="神田神保町1−105" >
                         </div>
-                    </div> -->
-                    <!-- <div class="itemRow">
+                    </div>
+                    <div class="itemRow">
                         <div class="itemTitle">電話番号</div>
                         <div class="itemContent">
                             <input type="text" id="tel" name="tel" value="{{ old('tel') }}" class="form-control" placeholder="03-5577-2300" >
                         </div>
-                    </div> -->
+                    </div>
                     <div class="itemRow">
                         <div class="itemTitle">メールアドレス</div>
                         <div class="itemContent">
@@ -69,15 +69,15 @@
                                 <input type="text" id="email2" name="email2" value="{{ old('email2') }}" class="form-control" placeholder="確認用の為、同じアドレスを入力してください" >
                         </div>
                     </div>
-                    <div class="itemRow">
+                    <!-- <div class="itemRow">
                         <div class="itemTitle">レシート画像</div>
                         <div class="itemContent">
                             <input type="file" id="image" name="image" accept="image/jpeg, image/png">
                             <img src="" id="image_preview">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="itemBtn">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="return applyConfirm()" >申し込む</button>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="return qualityApplyConfirm()" >申し込む</button>
                     </div>
                 </form>
             </div>

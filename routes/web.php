@@ -23,6 +23,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
     Route::get('/', 'AdminController@index')->name('admin.index');
     Route::get('/fc_tokyo', 'Admin_FC_TOKYO_Controller@index')->name('admin.fc_tokyo');
     Route::get('/why_you_run', 'AdminWhyYouRunController@index')->name('admin.why_you_run');
+    Route::get('/why_you_run_quality', 'AdminWhyYouRunController@index_quality')->name('admin.why_you_run_quality');
 });
 
 // fc_tokyo
@@ -33,7 +34,12 @@ Route::get('fc_tokyo/complete', 'FcTokyoApplicationController@complete')->name('
 
 // why_you_run
 Route::group(['prefix'=>'why_you_run'], function(){
-    Route::get('/', 'WhyYouRunController@index')->name('why_you_run.index');
-    Route::post('/register', 'WhyYouRunController@register')->name('why_you_run.register');
-    Route::get('/complete', 'WhyYouRunController@complete')->name('why_you_run.complete');
+    Route::get('/10k_charge', 'WhyYouRunController@index')->name('why_you_run.index');
+    Route::post('/10k_charge_register', 'WhyYouRunController@register')->name('why_you_run.register');
+    Route::get('/10k_charge_complete', 'WhyYouRunController@complete')->name('why_you_run.complete');
+
+    Route::get('/quality', 'WhyYouRunQualityController@index')->name('why_you_run_quality.index');
+    Route::post('/quality_register', 'WhyYouRunQualityController@register')->name('why_you_run_quality.register');
+    Route::get('/quality_complete', 'WhyYouRunQualityController@complete')->name('why_you_run_quality.complete');
+
 });

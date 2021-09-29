@@ -4,7 +4,32 @@ var errorCount = 0;
 var errorMSG = [];
 
 
-function applyConfilm(){
+function applyConfirm(){
+    errorMSG = [];
+    errorCount = 0;
+
+    checkFName();
+    checkLName();
+    checkFRead();
+    checkLRead();
+    // checkZip();
+    // checkAddress();
+    // checkTel();
+    checkEMail();
+    checkImage();
+
+    if(errorMSG.length){
+        var alertMSG = errorMSG.join('\n');
+        alert(alertMSG);
+    }else{
+        if (window.confirm('申し込みをしますか？')) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function qualityApplyConfirm(){
     errorMSG = [];
     errorCount = 0;
 
@@ -16,7 +41,7 @@ function applyConfilm(){
     checkAddress();
     checkTel();
     checkEMail();
-    checkImage();
+    // checkImage();
 
     if(errorMSG.length){
         var alertMSG = errorMSG.join('\n');

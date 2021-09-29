@@ -2,35 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\why_you_run;
+use App\Models\WhyYouRunQuality;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use InterventionImage;
 use Mail;
 
-
-class WhyYouRunController extends Controller
+class WhyYouRunQualityController extends Controller
 {
-
-    private $_fileExtntion = ['jpg', 'jpeg', 'png'];
-	private $_baseFileName  = "";
-    private $_resize_maxWidth = '400';
-
-	protected $_f_name = "";
-	protected $_l_name = "";
-	protected $_f_read = "";
-	protected $_l_read = "";
-	protected $_size   = "";
-	protected $_zip21  = "";
-	protected $_zip22  = "";
-	protected $_pref21 = "";
-	protected $_addr21 = "";
-	protected $_strt21 = "";
-	protected $_tel    = "";
-	protected $_email  = "";
-
-	protected $_errorMSG = [];
-
 	protected $_secretariat = "";
 
 	function __construct()	{
@@ -38,13 +16,13 @@ class WhyYouRunController extends Controller
 	}
 
     /**
-     * Show the application dashboard.
+     * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('why_you_run.index');
+        return view('why_you_run.quality');
     }
 
     /**
@@ -62,12 +40,12 @@ class WhyYouRunController extends Controller
             $this->storeVariable($request);
 
             // 画像処理
-            $this->_imgCheckAndUpload($request->image);
+            // $this->_imgCheckAndUpload($request->image);
 
             DB::beginTransaction();
 
             // 応募内容を登録
-            $return = why_you_run::register($request, $this->_baseFileName);
+            $return = WhyYouRunQuality::register($request);
             if (!$return){
                 $this->_errorMSG[] = "申し込みに失敗しました。<br>お手数ですが直接事務局までお問い合わせください";
                 $errorMessage = implode("<br>\n" , $this->_errorMSG) ;
@@ -81,7 +59,7 @@ class WhyYouRunController extends Controller
             $this->sendReportMail();
 
             DB::commit();
-            return redirect()->action('WhyYouRunController@complete');
+            return redirect()->action('WhyYouRunQualityController@complete');
         } catch (\Exception $e) {
             DB::rollback();
             echo $e->getMessage();
@@ -143,51 +121,6 @@ class WhyYouRunController extends Controller
         $this->_email  = $request->email1;
     }
 
-    /**
-     * 画像のバリデーションを確認してアップロードする
-     *
-     * @param [type] $file
-     * @return void
-     */
-    public function _imgCheckAndUpload($file){
-        if(!$file)throw new \Exception("ファイルが指定されていません");
-
-        // 登録可能な拡張子か確認して取得する
-        $extension = $this->checkFileExtension($file);
-
-        // ファイル名の作成 => wyr_ {日時} . {拡張子}
-        $this->_baseFileName = sprintf(
-            '%s_%s.%s',
-            'wyr',
-            time(),
-            $extension
-        );
-
-        // 画像を保存する
-        $file->storeAs('public/why_you_run_receipt_img', $this->_baseFileName);
-
-        // リサイズして保存する
-        $resizeImg = InterventionImage::make($file)
-        ->resize($this->_resize_maxWidth, null, function ($constraint) {
-            $constraint->aspectRatio();
-        })
-        ->orientate()
-        ->save(storage_path('app/public/why_you_run_receipt_img_resize/') . $this->_baseFileName);
-
-    }
-
-    /**
-     * 渡されたファイルが登録可能な拡張子か確認するしてOKなら拡張子を返す
-     */
-    public function checkFileExtension($file){
-        // 渡された拡張子を取得
-        $extension =  $file->extension();
-        if(! in_array($extension, $this->_fileExtntion)){
-            $fileExtntion = json_encode($this->_fileExtntion);
-            throw new \Exception("登録できる画像の拡張子は". $fileExtntion ."のみです。");
-        }
-        return $file->extension();
-    }
 
     /**
      * レポートメールを送信
@@ -233,7 +166,9 @@ class WhyYouRunController extends Controller
      *
      */
     public function complete(){
-        return view('why_you_run.complete');
+        return view('why_you_run.quality_complete');
     }
+
+
 
 }

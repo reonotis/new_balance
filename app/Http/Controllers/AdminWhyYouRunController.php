@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\why_you_run;
+use App\Models\WhyYouRunQuality;
 use Illuminate\Http\Request;
 
 class AdminWhyYouRunController extends Controller
@@ -20,14 +21,20 @@ class AdminWhyYouRunController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function index_quality()
     {
-        //
+        $dataList = WhyYouRunQuality::getApplyList();
+        return view('admin.why_you_run_quality', compact('dataList'));
     }
+
+
+
+
+
 
     /**
      * Store a newly created resource in storage.
