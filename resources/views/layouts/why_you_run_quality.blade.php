@@ -21,8 +21,8 @@
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/why_you_run_quality.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}?date={{date('Ymd')}}" rel="stylesheet">
+    <link href="{{ asset('css/why_you_run_quality.css') }}?date={{date('Ymd')}}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('img/logo/favicon.ico') }}">
 
 </head>
