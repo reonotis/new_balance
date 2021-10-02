@@ -202,8 +202,8 @@ class WhyYouRunController extends Controller
             "email"  => $this->_email,
             "url"  => url('').'/admin'
         ];
-        Mail::send('emails.why you run_reportMail', $data, function($message){
-            $message->to($this->_secretariat)
+        Mail::send('emails.why_you_run_thankYouMail', $data, function($message){
+            $message->to($this->_email)
             ->bcc("fujisawareon@yahoo.co.jp")
             ->subject('お申し込みが完了しました。');
         });
@@ -222,7 +222,7 @@ class WhyYouRunController extends Controller
             "email"  => $this->_email,
             "url"  => url('').'/admin'
         ];
-        Mail::send('emails.why you run_reportMail', $data, function($message){
+        Mail::send('emails.why_you_run_reportMail', $data, function($message){
             $message->to($this->_secretariat)
             ->bcc("fujisawareon@yahoo.co.jp")
             ->subject('申し込みがありました');

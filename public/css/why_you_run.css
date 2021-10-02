@@ -1,5 +1,5 @@
 body{
-  background: #231F20;
+  background: #fcfcfc;
   font-family: -apple-system,BlinkMacSystemFont,"Noto Sans JP",'Lato',"ヒラギノ角ゴ ProN","Hiragino Kaku Gothic ProN","ヒラギノ角ゴ Pro","Hiragino Kaku Gothic Pro","メイリオ", Meiryo,"Helvetica Neue", HelveticaNeue, Helvetica,Arial,"Segoe UI",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   color: #000000;
 
@@ -8,6 +8,16 @@ body{
   display: none;
 }
 
+.header-img{
+  width: 100%;
+  height: 40vh;
+}
+.header-img>img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position:  50% 95%;
+}
 
 .brSp {display: none;}
 @media screen and (max-width: 550px) {
@@ -18,14 +28,28 @@ body{
   .brSp2 {display: block;}    /* SP改行 */
 }
 
+
+
+
 .col-md-8{
   width: 990px;
   max-width: 95%;
-  background :#d6d6d6;
+  background :#eee;
   padding: 0;
   margin-top: 80px;
   margin-bottom: 40px;
 }
+.explanation{
+  width: 1200px;
+}
+
+.col-md-8.explanation{
+  max-width: 95%;
+  padding: 0;
+  margin-top: -60px;
+  margin-bottom: 40px;
+}
+
 
 .card-header{
   position: relative;
@@ -34,7 +58,7 @@ body{
   line-height: 1.2;
   color: #000;
   border-bottom: none !important;
-  padding:  40px 20px ;
+  padding:  40px 30px ;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,6 +70,11 @@ body{
   color: #fff;
 }
 
+@media (max-width: 576px){
+  .card-header{
+    font-size:1.3em;
+  }
+}
 .card-header::before{
   content: "";
   position: absolute;
@@ -121,7 +150,7 @@ body{
   justify-content: left;
   border: #e1e1e1 1px solid;
   margin-bottom: 20px;
-  background: #e4e4e4;
+  background: #ffffff;
 }
 .itemTitle{
   width: 150px;
@@ -133,8 +162,8 @@ body{
   letter-spacing: 0.5px;
   word-wrap: break-word;
   color: #000;
-  background: url(../img/diagonal_white.png);
-  background-image: url(../img/diagonal_white.png);
+  background: url(../img/diagonal_gray.png);
+  background-image: url(../img/diagonal_gray.png);
   background-position-x: initial;
   background-position-y: initial;
   background-size: initial;
@@ -168,7 +197,10 @@ body{
 }
 
 
-
+.heads-up{
+  color: #e6321e;
+  font-weight: 700;
+}
 
 
 input[type="text"]{

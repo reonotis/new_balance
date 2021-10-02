@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card-header">
 
-                品質保証キャンペーン<br class="brSp">応募フォーム
+                品質保証キャンペーン
                 <!-- <div class="ribbon18-content" >
                     <div class="ribbon18" ></div>
                 </div> -->

@@ -1,15 +1,56 @@
 @extends('layouts.why_you_run')
 
 @section('content')
+
+<div class="header-img" >
+    <img src="{{asset('img/why_you_run/photo1.jpg')}}" >
+</div>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card-header">
+        <div class="col-md-8 explanation">
 
-                10K CHARGE<br class="brSp">キャンペーン<br class="brSp">応募フォーム
+            <div class="card-header">
+                10K CHARGEで使える<br class="brSp">クーポンコードプレゼント<br>抽選で115名様に合計50万円<br class="brSp">のギフトカードが当たる！」
                 <!-- <div class="ribbon18-content" >
                     <div class="ribbon18" ></div>
                 </div> -->
+            </div>
+            <div class="headerSupport">
+
+                <div class="itemRow">
+                    <div class="itemTitle">期　　間</div>
+                    <div class="itemContent">10月8日（金）〜10月31日（日）<br>
+                        ※応募締め切りは11月14日（日）23時59分
+                    </div>
+                </div>
+                <div class="itemRow">
+                    <div class="itemTitle">応募資格</div>
+                    <div class="itemContent">期間中にニューバランスランニング商品を<span class="heads-up" >合計5,000円（税込）以上</span>ご購入の方
+                    </div>
+                </div>
+                <div class="itemRow">
+                    <div class="itemTitle">対象商品</div>
+                    <div class="itemContent">ニューバランスランニング全商品（セール品含む）
+                    </div>
+                </div>
+                <div class="itemRow">
+                    <div class="itemTitle">キャンペーン賞品</div>
+                    <div class="itemContent">
+                        10K CHARGE参加＋特別コード入力で<br>
+                        合計50万円のギフトカードが115名様に当たる！<br>
+                        1等賞：10万円　×　1名<br>
+                        2等賞：5万円　×　4名<br>
+                        3等賞：1万円　×　10名<br>
+                        4等賞：1000円　×　100名<br>
+                        ★10K CHARGEへのご参加はこちらから↓<br>
+                        <a href="https://10kcharge.com/" >https://10kcharge.com/</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card-header">
+                申込フォーム
             </div>
             <div class="headerSupport">
                 10K charge への申し込みクーポンコードの獲得をご希望の方は、<br class="brSp">下記より必要事項をご記入の上、5000円(税込み)以上購入のレシート画像を添付してお申し込みください。

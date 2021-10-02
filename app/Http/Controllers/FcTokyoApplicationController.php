@@ -82,13 +82,13 @@ class FcTokyoApplicationController extends Controller
         if (!$request->l_name) $this->_errorMSG[] = "名前を入力してください";
         if (!$request->f_read){
             $this->_errorMSG[] = "ミョウジを入力してください";
-        }else if(!preg_match(config('const.app.ZENKAKUKANA'), $request->f_read)) {
+        }else if(!preg_match(config('app.ZENKAKUKANA'), $request->f_read)) {
             $this->_errorMSG[] = "ミョウジは全角カナで入力してください";
         }
 
         if (!$request->l_read){
             $this->_errorMSG[] = "ナマエを入力してください";
-        }else if(!preg_match(config('const.app.ZENKAKUKANA'), $request->l_read)){
+        }else if(!preg_match(config('app.ZENKAKUKANA'), $request->l_read)){
             $this->_errorMSG[] = "ナマエは全角カナで入力してください";
         }
 
@@ -103,9 +103,9 @@ class FcTokyoApplicationController extends Controller
         if (!$request->addr21) $this->_errorMSG[] = "市区町村を入力してください";
         if (!$request->strt21) $this->_errorMSG[] = "番地を入力してください";
 
-        if (!preg_match(config('const.app.DENWABANGOU'), $request->tel)) $this->_errorMSG[] = "電話番号は市外局番から-(ハイフン)を含めて入力してください";
+        if (!preg_match(config('app.DENWABANGOU'), $request->tel)) $this->_errorMSG[] = "電話番号は市外局番から-(ハイフン)を含めて入力してください";
 
-        if (!preg_match(config('const.app.MAILADDRESS'), $request->email1)){
+        if (!preg_match(config('app.MAILADDRESS'), $request->email1)){
             $this->_errorMSG[] = "メールアドレスを正しく入力してください";
         }else if($request->email1 <> $request->email2){
             $this->_errorMSG[] = "メールアドレスが確認用と一致していません";
