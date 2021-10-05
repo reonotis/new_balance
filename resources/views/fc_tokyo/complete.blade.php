@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card-header">
-                FC東京がアルク東京 <br class="brSp">FC東京3rdユニフォーム<br class="brSp2">お申込フォーム
+                FC東京がアルク東京 <br class="brSp">サイン入りユニフォーム」<br class="brSp2">お申込フォーム
             </div>
         </div>
         <div class="col-md-8">
