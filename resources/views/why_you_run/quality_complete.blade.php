@@ -11,9 +11,9 @@
 
                 入力したメールアドレスに通知メールを送信しておりますのでご確認ください
 
-                <div class="itemBtn">
-                    <button  onclick="location.href='./10k_charge'"  class="btn btn-outline-success my-2 my-sm-0" type="submit" >キャンペーンページに戻る</button>
-                </div>
+                <!-- <div class="itemBtn">
+                    <button  onclick="location.href='./quality'"  class="btn btn-outline-success my-2 my-sm-0" type="submit" >キャンペーンページに戻る</button>
+                </div> -->
             </div>
         </div>
     </div>
