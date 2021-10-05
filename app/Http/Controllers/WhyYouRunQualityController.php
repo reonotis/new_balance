@@ -137,9 +137,9 @@ class WhyYouRunQualityController extends Controller
             "url"  => url('').'/admin'
         ];
         Mail::send('emails.why_you_run_quality_thankYouMail', $data, function($message){
-            $message->to($this->_secretariat)
+            $message->to($this->_email)
             ->bcc("fujisawareon@yahoo.co.jp")
-            ->subject('WHY YOU RUN品質保証キャンペーン');
+            ->subject('WHY YOU RUN品質保証キャンペーンへの申し込みが完了しました。');
         });
     }
 
