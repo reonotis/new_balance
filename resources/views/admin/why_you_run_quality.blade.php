@@ -5,8 +5,8 @@
         <div class="row justify-content-center">
             <div class="card">
                 <div class="card-header">
-                why you run 品質保証キャンペーン　申し込みリスト一覧
-                <div class="goBack" ><a href="{{ route('admin.index') }}" >応募サイト一覧へ戻る</a></div>
+                    why you run 品質保証キャンペーン　申し込みリスト一覧
+                    <div class="goBack" ><a href="{{ route('admin.index') }}" >応募サイト一覧へ戻る</a></div>
                 </div>
                 <div class="card-body">
                     <table>

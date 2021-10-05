@@ -129,16 +129,17 @@ class WhyYouRunQualityController extends Controller
         $data = [
             "name" => $this->_f_name . " " .$this->_l_name,
             "read" => $this->_f_read . " " .$this->_l_read,
+            "read" => $this->_f_read . " " .$this->_l_read,
             "zip"  => $this->_zip21 . "-" .$this->_zip22 ,
             "streetAddress"  => $this->_pref21 . "" .$this->_addr21 . "" .$this->_strt21 ,
             "tel"  => $this->_tel,
             "email"  => $this->_email,
             "url"  => url('').'/admin'
         ];
-        Mail::send('emails.why you run_reportMail', $data, function($message){
+        Mail::send('emails.why_you_run_quality_thankYouMail', $data, function($message){
             $message->to($this->_secretariat)
             ->bcc("fujisawareon@yahoo.co.jp")
-            ->subject('お申し込みが完了しました。');
+            ->subject('WHY YOU RUN品質保証キャンペーン');
         });
     }
 
@@ -155,10 +156,10 @@ class WhyYouRunQualityController extends Controller
             "email"  => $this->_email,
             "url"  => url('').'/admin'
         ];
-        Mail::send('emails.why you run_reportMail', $data, function($message){
+        Mail::send('emails.why_you_run_quality_reportMail', $data, function($message){
             $message->to($this->_secretariat)
             ->bcc("fujisawareon@yahoo.co.jp")
-            ->subject('申し込みがありました');
+            ->subject('why you run 品質保証キャンペーンにお申し込みがありました。');
         });
     }
 

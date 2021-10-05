@@ -28,6 +28,7 @@ class WhyYouRunController extends Controller
 	protected $_strt21 = "";
 	protected $_tel    = "";
 	protected $_email  = "";
+	protected $_coupon_code  = "";
 
 	protected $_errorMSG = [];
 
@@ -67,12 +68,14 @@ class WhyYouRunController extends Controller
             DB::beginTransaction();
 
             // 応募内容を登録
-            $return = why_you_run::register($request, $this->_baseFileName);
-            if (!$return){
+            $response = why_you_run::register($request, $this->_baseFileName);
+            if (!$response){
                 $this->_errorMSG[] = "申し込みに失敗しました。<br>お手数ですが直接事務局までお問い合わせください";
                 $errorMessage = implode("<br>\n" , $this->_errorMSG) ;
                 throw new \Exception($errorMessage);
             }
+
+            $this->_coupon_code = $response->coupon_code ;
 
             // thank youメール
             $this->sendThankYouMail();
@@ -196,6 +199,7 @@ class WhyYouRunController extends Controller
         $data = [
             "name" => $this->_f_name . " " .$this->_l_name,
             "read" => $this->_f_read . " " .$this->_l_read,
+            "coupon_code" => $this->_coupon_code,
             "zip"  => $this->_zip21 . "-" .$this->_zip22 ,
             "streetAddress"  => $this->_pref21 . "" .$this->_addr21 . "" .$this->_strt21 ,
             "tel"  => $this->_tel,
@@ -205,7 +209,7 @@ class WhyYouRunController extends Controller
         Mail::send('emails.why_you_run_thankYouMail', $data, function($message){
             $message->to($this->_email)
             ->bcc("fujisawareon@yahoo.co.jp")
-            ->subject('お申し込みが完了しました。');
+            ->subject('「10K CHAERGE」イベントで使えるキャンペーンへのお申し込みが完了しました。');
         });
     }
 
@@ -225,7 +229,7 @@ class WhyYouRunController extends Controller
         Mail::send('emails.why_you_run_reportMail', $data, function($message){
             $message->to($this->_secretariat)
             ->bcc("fujisawareon@yahoo.co.jp")
-            ->subject('申し込みがありました');
+            ->subject('「10K CHAERGE」イベントで使えるキャンペーンへの申し込みがありました');
         });
     }
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 class why_you_run extends Model
 {
 
+
     /**
      * 本日来店時に登録した顧客を取得する
      * @param [type] $shop_id
@@ -42,7 +43,8 @@ class why_you_run extends Model
         $record = self::find($id);
         $record->coupon_code = $coupon_code;
         $record->save();
-        return true;
+
+        return $record;
     }
 
     /**

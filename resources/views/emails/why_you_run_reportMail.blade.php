@@ -11,4 +11,3 @@ why you run 10K CHARGEにお申し込みがありました。<br>
 URL : <a href="{{$url}}">{{$url}}</a>
 <br>
 <br>
-
