@@ -15,8 +15,6 @@
                                 <th>お名前</th>
                                 <th>申込日時</th>
                                 <th>クーポンコード</th>
-                                <th>電話番号</th>
-                                <th>住所</th>
                                 <th>メールアドレス</th>
                                 <th>レシート画像</th>
                             </tr>
@@ -27,11 +25,6 @@
                                     <td>{{ $appList->f_name." ".$appList->l_name." 様" }}<br><span class="name_read" >({{ $appList->f_read." ".$appList->l_read }})</span></td>
                                     <td>{{ $appList->created_at->format('m/d H:i') }}</td>
                                     <td>{{ $appList->coupon_code }}</td>
-                                    <td>{{ $appList->tel }}</td>
-                                    <td>
-                                        {{ $appList->zip21 ."-". $appList->zip22 }}<br>
-                                        {{ $appList->pref21 ." ". $appList->addr21." ". $appList->strt21 }}
-                                    </td>
                                     <td>{{ $appList->email }}</td>
                                     <td>
                                         <img src="{{asset('storage/why_you_run_receipt_img_resize/'.$appList->img_pass)}}" class="thumbnail_imgs WYRRI" id="why_you_run_receipt_resize_<?= $appList->id ?>" >

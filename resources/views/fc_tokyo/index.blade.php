@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card-header">
-                FC東京がアルク東京 <br class="brSp">サイン入りユニフォーム」<br class="brSp2">お申込フォーム
+                FC東京がアルク東京 <br class="brSp">サイン入りユニフォーム<br class="brSp2">お申込フォーム
             </div>
         </div>
         <div class="col-md-8">
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="itemRow">
+                <!-- <div class="itemRow">
                     <div class="itemTitle">希望サイズ</div>
                     <div class="itemContent">
                         <div class="inputRadio4">
@@ -44,7 +44,7 @@
                             <label><input type="radio" name="size" value="XL" <?php if(old('size')  == 'XL' )echo " checked='checked'"; ?> >XL</label>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="itemRow">
                     <div class="itemTitle">住所</div>
                     <div class="itemContent">

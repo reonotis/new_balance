@@ -14,7 +14,6 @@
                             <thead>
                                 <tr>
                                     <th>お名前</th>
-                                    <th>希望サイズ</th>
                                     <th>電話番号</th>
                                     <th>住所</th>
                                     <th>メールアドレス</th>
@@ -24,7 +23,6 @@
                                 @foreach($appLists as $appList)
                                     <tr>
                                         <td>{{ $appList->f_name.$appList->l_name }} ({{ $appList->f_read.$appList->l_read }})</td>
-                                        <td>{{ $appList->size }}</td>
                                         <td>{{ $appList->tel }}</td>
                                         <td>
                                             {{ $appList->zip21 ."-". $appList->zip22 }}

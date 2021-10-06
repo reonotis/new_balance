@@ -17,7 +17,7 @@ class FcTokyoApplicationController extends Controller
 	protected $_l_name = "";
 	protected $_f_read = "";
 	protected $_l_read = "";
-	protected $_size   = "";
+	// protected $_size   = "";
 	protected $_zip21  = "";
 	protected $_zip22  = "";
 	protected $_pref21 = "";
@@ -93,9 +93,9 @@ class FcTokyoApplicationController extends Controller
         }
 
 
-        $array_size = array('S', 'M', 'L', 'XL');
-        $result_size = in_array($request->size, $array_size);
-        if(!$result_size) $this->_errorMSG[] = "サイズを正しく選択してください";
+        // $array_size = array('S', 'M', 'L', 'XL');
+        // $result_size = in_array($request->size, $array_size);
+        // if(!$result_size) $this->_errorMSG[] = "サイズを正しく選択してください";
 
 
         if(strlen($request->zip21) <> 3 || strlen($request->zip22) <> 4  )$this->_errorMSG[] = "郵便番号は3桁-4桁で入力してください";
@@ -125,7 +125,7 @@ class FcTokyoApplicationController extends Controller
         $this->_l_name = $request->l_name;
         $this->_f_read = $request->f_read;
         $this->_l_read = $request->l_read;
-        $this->_size   = $request->size;
+        // $this->_size   = $request->size;
         $this->_zip21  = $request->zip21;
         $this->_zip22  = $request->zip22;
         $this->_pref21 = $request->pref21;
@@ -149,7 +149,7 @@ class FcTokyoApplicationController extends Controller
         $fc_tokyo->pref21 = $this->_pref21;
         $fc_tokyo->addr21 = $this->_addr21;
         $fc_tokyo->strt21 = $this->_strt21;
-        $fc_tokyo->size   = $this->_size;
+        // $fc_tokyo->size   = $this->_size;
         $fc_tokyo->tel    = $this->_tel;
         $fc_tokyo->email  = $this->_email;
         $fc_tokyo->save();
@@ -176,7 +176,7 @@ class FcTokyoApplicationController extends Controller
         $data = [
             "name" => $this->_f_name . " " .$this->_l_name,
             "read" => $this->_f_read . " " .$this->_l_read,
-            "size" => $this->_size,
+            // "size" => $this->_size,
             "zip"  => $this->_zip21 . "-" .$this->_zip22 ,
             "streetAddress"  => $this->_pref21 . "" .$this->_addr21 . "" .$this->_strt21 ,
             "tel"  => $this->_tel,
