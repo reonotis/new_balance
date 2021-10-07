@@ -11,7 +11,7 @@ class WhyYouRunQuality extends Model
      * @param [type] $shop_id
      * @return void
      */
-    public static function register($request)
+    public static function register($request, $fileName)
     {
         $result = self::insert([
             [
@@ -26,6 +26,7 @@ class WhyYouRunQuality extends Model
                 'pref21'      => $request->pref21,
                 'addr21'      => $request->addr21,
                 'strt21'      => $request->strt21,
+                'img_pass'    => $fileName,
             ],
         ]);
         if (!$result){

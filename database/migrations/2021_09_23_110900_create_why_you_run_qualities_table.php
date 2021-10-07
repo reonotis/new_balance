@@ -28,6 +28,7 @@ class CreateWhyYouRunQualitiesTable extends Migration
             $table->string('pref21')           ->nullable()->comment('都道府県');
             $table->string('addr21')           ->nullable()->comment('市区町村');
             $table->string('strt21')           ->nullable()->comment('所在');
+            $table->string('img_pass')                     ->comment('画像パス');
 
             $table->timestamp('created_at')    ->default(DB::raw('CURRENT_TIMESTAMP'))->comment('作成日時')	;
             $table->timestamp('updated_at')    ->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'))->comment('更新日時');

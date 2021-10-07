@@ -69,13 +69,13 @@
                                 <input type="text" id="email2" name="email2" value="{{ old('email2') }}" class="form-control" placeholder="確認用の為、同じアドレスを入力してください" >
                         </div>
                     </div>
-                    <!-- <div class="itemRow">
+                    <div class="itemRow">
                         <div class="itemTitle">レシート画像</div>
                         <div class="itemContent">
                             <input type="file" id="image" name="image" accept="image/jpeg, image/png">
                             <img src="" id="image_preview">
                         </div>
-                    </div> -->
+                    </div>
                     <div class="itemBtn">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="return qualityApplyConfirm()" >申し込む</button>
                     </div>

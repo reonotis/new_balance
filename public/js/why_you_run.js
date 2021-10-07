@@ -41,7 +41,7 @@ function qualityApplyConfirm(){
     checkAddress();
     checkTel();
     checkEMail();
-    // checkImage();
+    checkImage();
 
     if(errorMSG.length){
         var alertMSG = errorMSG.join('\n');

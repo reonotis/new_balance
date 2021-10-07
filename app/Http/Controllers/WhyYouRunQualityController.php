@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\WhyYouRunQuality;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use InterventionImage;
 use Mail;
 
 class WhyYouRunQualityController extends Controller
 {
+    private $_fileExtntion = ['jpg', 'jpeg', 'png'];
+	private $_baseFileName  = "";
+    private $_resize_maxWidth = '400';
+
 	protected $_secretariat = "";
+
 
 	function __construct()	{
         $this->_secretariat = config('mail.secretariat');
@@ -40,12 +46,12 @@ class WhyYouRunQualityController extends Controller
             $this->storeVariable($request);
 
             // 画像処理
-            // $this->_imgCheckAndUpload($request->image);
+            $this->_imgCheckAndUpload($request->image);
 
             DB::beginTransaction();
 
             // 応募内容を登録
-            $return = WhyYouRunQuality::register($request);
+            $return = WhyYouRunQuality::register($request, $this->_baseFileName);
             if (!$return){
                 $this->_errorMSG[] = "申し込みに失敗しました。<br>お手数ですが直接事務局までお問い合わせください";
                 $errorMessage = implode("<br>\n" , $this->_errorMSG) ;
@@ -161,6 +167,52 @@ class WhyYouRunQualityController extends Controller
             ->bcc("fujisawareon@yahoo.co.jp")
             ->subject('why you run 品質保証キャンペーンにお申し込みがありました。');
         });
+    }
+
+    /**
+     * 画像のバリデーションを確認してアップロードする
+     *
+     * @param [type] $file
+     * @return void
+     */
+    public function _imgCheckAndUpload($file){
+        if(!$file)throw new \Exception("ファイルが指定されていません");
+
+        // 登録可能な拡張子か確認して取得する
+        $extension = $this->checkFileExtension($file);
+
+        // ファイル名の作成 => wyr_ {日時} . {拡張子}
+        $this->_baseFileName = sprintf(
+            '%s_%s.%s',
+            'wyrq',
+            time(),
+            $extension
+        );
+
+        // 画像を保存する
+        $file->storeAs('public/why_you_run_quality_img', $this->_baseFileName);
+
+        // リサイズして保存する
+        $resizeImg = InterventionImage::make($file)
+        ->resize($this->_resize_maxWidth, null, function ($constraint) {
+            $constraint->aspectRatio();
+        })
+        ->orientate()
+        ->save(storage_path('app/public/why_you_run_quality_img_resize/') . $this->_baseFileName);
+
+    }
+
+    /**
+     * 渡されたファイルが登録可能な拡張子か確認するしてOKなら拡張子を返す
+     */
+    public function checkFileExtension($file){
+        // 渡された拡張子を取得
+        $extension =  $file->extension();
+        if(! in_array($extension, $this->_fileExtntion)){
+            $fileExtntion = json_encode($this->_fileExtntion);
+            throw new \Exception("登録できる画像の拡張子は". $fileExtntion ."のみです。");
+        }
+        return $file->extension();
     }
 
     /**

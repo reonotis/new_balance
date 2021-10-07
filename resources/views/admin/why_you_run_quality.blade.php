@@ -17,6 +17,7 @@
                                 <th>電話番号</th>
                                 <th>住所</th>
                                 <th>メールアドレス</th>
+                                <th>レシート画像</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,6 +31,9 @@
                                         {{ $appList->pref21 ." ". $appList->addr21." ". $appList->strt21 }}
                                     </td>
                                     <td>{{ $appList->email }}</td>
+                                    <td>
+                                        <img src="{{asset('storage/why_you_run_quality_img_resize/'.$appList->img_pass)}}" class="thumbnail_imgs WYRRI" id="why_you_run_quality_img_resize_<?= $appList->id ?>" >
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -40,6 +44,33 @@
         </div>
     </div>
 
+    <div class="why_you_run_quality" id="why_you_run_quality"  ><div class="why_you_run_quality_img" ><div id="modal_close" >閉じる</div><img src=""></div></div>
+
+    <script>
+        $('.WYRRI').on("click", function () {
+            // １．ファイルのURL取得
+            var str = $(this).attr('src');
+            console.log(str)
+            // ２．URLからファイル名を取得
+            var cut_str ="why_you_run_quality_img_resize";
+            var index = str.indexOf(cut_str);
+            file_name = str.slice(index + 31);
+
+            // 表示用のソースに対象のファイルURLをセット
+            $('#why_you_run_quality').children('div').children('img').attr('src', '../storage/why_you_run_quality_img/' + file_name);
+            $('#why_you_run_quality').slideToggle(100)
+        });
+
+        $('#why_you_run_quality').on('click',function(e) {
+            if(!$(e.target).closest('.why_you_run_quality_img').length) {
+                $("#why_you_run_quality").slideToggle(100);
+            }
+        });
+        $('#modal_close').on('click',function() {
+            $("#why_you_run_quality").slideToggle(100);
+        });
+
+    </script>
 
 
 @endsection
