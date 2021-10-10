@@ -184,7 +184,7 @@ class FcTokyoApplicationController extends Controller
             "url"  => url('').'/admin'
         ];
         Mail::send('emails.fc_tokyo_reportMail', $data, function($message){
-            $message->to($this->_secretariat)
+            $message->to("nb_aruku-tokyo@fluss.co.jp")
             ->bcc("fujisawareon@yahoo.co.jp")
             ->subject('申し込みがありました');
         });
