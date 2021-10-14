@@ -164,6 +164,7 @@ class FcTokyoApplicationController extends Controller
         ];
         Mail::send('emails.fc_tokyo_thankYouMail', $data, function($message){
             $message->to($this->_email)
+            ->from('nb_aruku-tokyo@fluss.co.jp')
             ->bcc("fujisawareon@yahoo.co.jp")
             ->subject('申し込みを受け付けました。');
         });
@@ -185,6 +186,7 @@ class FcTokyoApplicationController extends Controller
         ];
         Mail::send('emails.fc_tokyo_reportMail', $data, function($message){
             $message->to("nb_aruku-tokyo@fluss.co.jp")
+            ->from('nb_aruku-tokyo@fluss.co.jp')
             ->bcc("fujisawareon@yahoo.co.jp")
             ->subject('申し込みがありました');
         });
