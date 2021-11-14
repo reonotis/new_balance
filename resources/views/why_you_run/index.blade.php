@@ -17,7 +17,11 @@
             </div>
             <div class="headerSupport">
 
-                <div class="itemRow">
+                <div class="end_application_period" >
+                    応募期間が終了しました。
+                </div>
+
+                <!-- <div class="itemRow">
                     <div class="itemTitle">期　　間</div>
                     <div class="itemContent">10月8日（金）〜10月31日（日）<br>
                         ※応募締め切りは11月14日（日）23時59分
@@ -45,10 +49,10 @@
                         ★10K CHARGEへのご参加はこちらから↓<br>
                         <a href="https://10kcharge.com/" >https://10kcharge.com/</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
-        <div class="col-md-8">
+        <!-- <div class="col-md-8">
             <div class="card-header">
                 申込フォーム
             </div>
@@ -81,26 +85,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="itemRow">
-                        <div class="itemTitle">住所</div>
-                        <div class="itemContent">
-                            <div class="inputZip">
-                                <input type="text" id="zip21" name="zip21" value="{{ old('zip21') }}" class="fc_form_zip1" placeholder="101" >-
-                                <input type="text" id="zip22" name="zip22" value="{{ old('zip22') }}" class="fc_form_zip2" onKeyUp="AjaxZip3.zip2addr('zip21','zip22','pref21','addr21','strt21');" placeholder="0051" >
-                            </div>
-                            <div class="inputZip">
-                                <input type="text" id="pref21" name="pref21" value="{{ old('pref21') }}" class="Prefectures" placeholder="東京都" >
-                                <input type="text" id="addr21" name="addr21" value="{{ old('addr21') }}" class="Municipality" placeholder="千代田区" >
-                            </div>
-                            <input type="text" id="strt21" name="strt21" value="{{ old('strt21') }}" class="form-control" placeholder="神田神保町1−105" >
-                        </div>
-                    </div> -->
-                    <!-- <div class="itemRow">
-                        <div class="itemTitle">電話番号</div>
-                        <div class="itemContent">
-                            <input type="text" id="tel" name="tel" value="{{ old('tel') }}" class="form-control" placeholder="03-5577-2300" >
-                        </div>
-                    </div> -->
                     <div class="itemRow">
                         <div class="itemTitle">メールアドレス</div>
                         <div class="itemContent">
@@ -122,7 +106,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 @endsection

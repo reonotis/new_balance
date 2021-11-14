@@ -14,7 +14,7 @@
                     {!! session('status') !!}
                 </div>
             @endif
-            <form action="{{route('fcTokyo.aplication')}}" method="post">
+            <!-- <form action="{{route('fcTokyo.aplication')}}" method="post">
                 @csrf
                 <div class="itemRow">
                     <div class="itemTitle">氏名</div>
@@ -34,17 +34,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="itemRow">
-                    <div class="itemTitle">希望サイズ</div>
-                    <div class="itemContent">
-                        <div class="inputRadio4">
-                            <label><input type="radio" name="size" value="S" <?php if(old('size')  == 'S' )echo " checked='checked'"; ?> >S</label>
-                            <label><input type="radio" name="size" value="M" <?php if(old('size')  == 'M' )echo " checked='checked'"; ?> >M</label>
-                            <label><input type="radio" name="size" value="L" <?php if(old('size')  == 'L' )echo " checked='checked'"; ?> >L</label>
-                            <label><input type="radio" name="size" value="XL" <?php if(old('size')  == 'XL' )echo " checked='checked'"; ?> >XL</label>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="itemRow">
                     <div class="itemTitle">住所</div>
                     <div class="itemContent">
@@ -77,7 +66,10 @@
                 <div class="itemBtn">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="return applyConfilm()" >申し込む</button>
                 </div>
-            </form>
+            </form> -->
+            <div class="end_application_period" >
+                応募期間が終了しました。
+            </div>
         </div>
     </div>
 </div>

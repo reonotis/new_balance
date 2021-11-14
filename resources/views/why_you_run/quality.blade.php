@@ -11,16 +11,16 @@
                     <div class="ribbon18" ></div>
                 </div> -->
             </div>
-            <div class="headerSupport">
+            <!-- <div class="headerSupport">
                 10K charge への申し込みクーポンコードの獲得をご希望の方は、<br class="brSp">下記より必要事項をご記入の上、5000円(税込み)以上購入のレシート画像を添付してお申し込みください。
-            </div>
+            </div> -->
             @if (session('status'))
                 <div class="alert alert-danger" role="alert">
                     {!! session('status') !!}
                 </div>
             @endif
             <div class="card-body">
-                <form action="{{ route('why_you_run_quality.register') }} " method="post"  enctype="multipart/form-data" >
+                <!-- <form action="{{ route('why_you_run_quality.register') }} " method="post"  enctype="multipart/form-data" >
                     @csrf
                     <div class="itemRow">
                         <div class="itemTitle">氏名</div>
@@ -79,7 +79,10 @@
                     <div class="itemBtn">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="return qualityApplyConfirm()" >申し込む</button>
                     </div>
-                </form>
+                </form> -->
+                <div class="end_application_period" >
+                    応募期間が終了しました。
+                </div>
             </div>
         </div>
     </div>

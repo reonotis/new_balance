@@ -326,3 +326,14 @@ input::placeholder{
 .btn-outline-success:not(:disabled):not(.disabled):active:focus, .btn-outline-success:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-success.dropdown-toggle:focus {
   box-shadow: none;
 }
+
+.end_application_period{
+  background: #fff3;
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 800;
+  border: solid 1px #fff;
+  border-radius: 7px;
+}
