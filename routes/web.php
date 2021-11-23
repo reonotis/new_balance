@@ -19,15 +19,16 @@ Route::get('/', function () {
 Auth::routes();
 
 // admin
+Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
     Route::get('/', 'AdminController@index')->name('admin.index');
     Route::get('/fc_tokyo', 'Admin_FC_TOKYO_Controller@index')->name('admin.fc_tokyo');
     Route::get('/why_you_run', 'AdminWhyYouRunController@index')->name('admin.why_you_run');
     Route::get('/why_you_run_quality', 'AdminWhyYouRunController@index_quality')->name('admin.why_you_run_quality');
+    Route::get('/golf', 'AdminGolfController@index')->name('admin.golf');
 });
 
 // fc_tokyo
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/fc_tokyo', 'FcTokyoApplicationController@index');
 Route::post('fc_tokyo/aplication', 'FcTokyoApplicationController@aplication')->name('fcTokyo.aplication');
 Route::get('fc_tokyo/complete', 'FcTokyoApplicationController@complete')->name('fcTokyo.complete');
@@ -41,5 +42,12 @@ Route::group(['prefix'=>'why_you_run'], function(){
     Route::get('/quality', 'WhyYouRunQualityController@index')->name('why_you_run_quality.index');
     Route::post('/quality_register', 'WhyYouRunQualityController@register')->name('why_you_run_quality.register');
     Route::get('/quality_complete', 'WhyYouRunQualityController@complete')->name('why_you_run_quality.complete');
-
 });
+
+// Golf  GolfHolidayCampaignController
+Route::get('/golf', 'GolfHolidayCampaignController@index')->name('golf.index');
+Route::post('golf/aplication', 'GolfHolidayCampaignController@register')->name('golf.aplication');
+Route::get('golf/complete', 'GolfHolidayCampaignController@complete')->name('golf.complete');
+
+// php artisan make:model Models/GolfHolidayCampaign -mc
+// php artisan make:controller AdminGolfController

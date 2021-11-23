@@ -47,6 +47,27 @@
   height: 100%;
   object-fit: cover;
 }
+.golf{
+  position:fixed;
+  top: 0;
+  width:100vw;
+  height: 100vh;
+  background :#3b3b3b73;
+  display: none;
+}
+.golf_img{
+  position: relative;
+	width: 95%;
+	max-width: 600px;
+	margin: 50px auto;
+  display: flex;
+  justify-content: center;
+}
+.golf_img > img  {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 #modal_close{
   position: absolute;

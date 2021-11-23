@@ -10,6 +10,9 @@
                 </div>
                 <div class="card-body">
                     <div class="apply_list">
+                        <a href="{{ route('admin.golf') }}">Golf Holiday Campaign</a>
+                    </div>
+                    <div class="apply_list">
                         <a href="{{ route('admin.fc_tokyo') }}">FC_TOKYO</a>
                     </div>
                     <div class="apply_list">
