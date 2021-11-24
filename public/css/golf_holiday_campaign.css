@@ -58,8 +58,10 @@ body::before{
 .itemRow{
   background: #fff;
   width :100%;
-  display: flex;
   margin-bottom :15px;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: left;
 }
 .itemTitle{
   width :150px;
