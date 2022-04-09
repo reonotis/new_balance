@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\NightRunPack;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\{DB, Log};
 use InterventionImage;
 use Mail;
 
@@ -18,6 +17,8 @@ class NightRunPackCampaignController extends Controller
 	protected $_l_name = "";
 	protected $_f_read = "";
 	protected $_l_read = "";
+	protected $_age    = "";
+	protected $_sex    = "";
 	// protected $_size   = "";
 	protected $_zip21  = "";
 	protected $_zip22  = "";
@@ -79,7 +80,7 @@ class NightRunPackCampaignController extends Controller
 
         } catch (\Exception $e) {
             DB::rollback();
-            echo $e->getMessage();
+            Log::info($e->getMessage());
 
             return redirect()->back()->with('status', $e->getMessage())->withInput();
             exit;
@@ -91,6 +92,7 @@ class NightRunPackCampaignController extends Controller
      */
     public function checkValidation($request)
     {
+        Log::info('checkValidation');
         $this->_errorMSG = [];
 
         if (!$request->f_name) $this->_errorMSG[] = "苗字を入力してください";
@@ -142,17 +144,18 @@ class NightRunPackCampaignController extends Controller
      */
     public function storeVariable($request)
     {
+        Log::info('storeVariable');
         $this->_f_name   = $request->f_name;
         $this->_l_name   = $request->l_name;
         $this->_f_read   = $request->f_read;
         $this->_l_read   = $request->l_read;
+        $this->_age      = $request->age;
+        $this->_sex      = $request->sex;
         $this->_zip21    = $request->zip21;
         $this->_zip22    = $request->zip22;
         $this->_pref21   = $request->pref21;
         $this->_addr21   = $request->addr21;
         $this->_street21 = $request->street21;
-        $this->_age      = $request->age;
-        $this->_sex      = $request->sex;
         $this->_tel      = $request->tel;
         $this->_email    = $request->email1;
     }
@@ -165,6 +168,7 @@ class NightRunPackCampaignController extends Controller
      */
     public function _imgCheckAndUpload($file)
     {
+        Log::info('_imgCheckAndUpload');
         if(!$file)throw new \Exception("画像が選択されていません");
 
         // 登録可能な拡張子か確認して取得する
@@ -195,6 +199,7 @@ class NightRunPackCampaignController extends Controller
      */
     public function checkFileExtension($file)
     {
+        Log::info('checkFileExtension');
         // 渡された拡張子を取得
         $extension = $file->extension();
         if(! in_array($extension, $this->_fileExtension)){
@@ -209,11 +214,14 @@ class NightRunPackCampaignController extends Controller
      */
     public function insertApplication()
     {
+        Log::info('insertApplication');
         $fc_tokyo = new NightRunPack;
         $fc_tokyo->f_name = $this->_f_name;
         $fc_tokyo->l_name = $this->_l_name;
         $fc_tokyo->f_read = $this->_f_read;
         $fc_tokyo->l_read = $this->_l_read;
+        $fc_tokyo->age    = $this->_age;
+        $fc_tokyo->sex    = $this->_sex;
         $fc_tokyo->zip21  = $this->_zip21;
         $fc_tokyo->zip22  = $this->_zip22;
         $fc_tokyo->pref21 = $this->_pref21;
@@ -229,7 +237,9 @@ class NightRunPackCampaignController extends Controller
     /**
      * 申し込み者に自動返信メールを送信
      */
-    public function sendThankYouMail(){
+    public function sendThankYouMail()
+    {
+        Log::info('sendThankYouMail');
         $data = [
             "customerName" => $this->_f_name .$this->_l_name
         ];
@@ -246,6 +256,7 @@ class NightRunPackCampaignController extends Controller
      */
     public function sendReportMail()
     {
+        Log::info('sendReportMail');
         $data = [
             "name" => $this->_f_name . " " .$this->_l_name,
             "read" => $this->_f_read . " " .$this->_l_read,
