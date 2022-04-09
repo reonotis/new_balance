@@ -1,0 +1,239 @@
+body{
+  background-image: url("./images/night_run_pack.png");
+  background-position: center center;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+  background-color: #080819;
+  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Osaka, Tahoma, Verdana, Arial, Verdana, sans-serif;
+}
+body::before{
+  /* background-color: rgba(0, 0, 0, 0.6); */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+}
+
+@media (max-width: 576px){
+  body::before{
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.navbar-expand-md .navbar-toggler {
+  display: none;
+}
+
+
+
+.card-header{
+  font-size:1.6em;
+  font-weight :800;
+  line-height: 1.2;
+  margin-bottom:30px;
+  color: #fff;
+}
+.brSp {display: none;}
+@media screen and (max-width: 550px) {
+  .brSp {display: block;}    /* SP改行 */
+}
+.brSp2 {display: none;}
+@media screen and (max-width: 700px) {
+  .brSp2 {display: block;}    /* SP改行 */
+}
+
+.card-body{
+  background: #fff;
+  color: #111;
+  padding: 50px 20px;
+  border-radius: 10px;
+}
+
+
+
+
+
+.itemRow{
+  background: #fff;
+  width :100%;
+  margin-bottom :15px;
+  border: solid 3px #fff;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: left;
+}
+.itemTitle{
+  width :150px;
+  padding :10px;
+  background: linear-gradient(to top, #DE55CD, #4B35DF);
+  color: #fff;
+  text-align:center;
+  font-weight :800;
+  font-size :1.2em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.itemContent{
+  height: 100%;
+  width : calc(100% - 150px);
+  padding :10px;
+}
+.itemContent-sex-area{
+  height: 100%;
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+  vertical-align:middle;
+}
+.itemContent-sex-area>label{
+  margin: 0 20px 0 0;
+  padding: 5px 10px;
+}
+
+
+@media (max-width: 576px){
+  .itemRow{
+    margin-bottom :20px;
+  }
+  .itemTitle{
+    width :100%;
+    text-align: left;
+    padding-bottom:0;
+  }
+  .itemContent{
+    width :100% ;
+    padding-top :5px;
+  }
+}
+
+.mail_supplement{
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 0;
+}
+
+
+.itemBtn{
+  display: flex;
+  flex-flow: wrap;
+}
+.btn-outline-success{
+  display:block;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 20px !important ;
+  padding: 16px 80px;
+  color: #fff;
+  font-size:1.1em;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  transition: 1s;
+  z-index:0;
+}
+.btn-outline-success:before,
+.btn-outline-success:after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 30px;
+  transition: 0.5s;
+}
+.btn-outline-success:before{
+  background: linear-gradient(to top, #DE55CD, #4B35DF);
+  z-index: -1;
+}
+.btn-outline-success:after{
+  background: linear-gradient(to top, #4B35DF, #DE55CD);
+  z-index: -2;
+}
+.btn-outline-success:hover:before{
+  opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+input[type="text"],
+input[type="number"]
+{
+  display: block;
+  width: 100%;
+  height: calc(1.6em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+input:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #a1cbef;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgb(52 144 220 / 25%);
+}
+.fc_form1{
+  width: 45% !important ;
+  margin-right: 10px;
+}
+.inputName{
+  display       : flex;
+  flex-flow     : wrap;
+  justify-content: left;
+}
+.inputRadio4 > label{
+  padding :0 30px  0 0  ;
+  margin :0;
+}
+.inputZip{
+  display       : flex;
+  flex-flow     : wrap;
+  justify-content: left;
+  margin-bottom : 5px;
+  line-height: 2.5;
+}
+.fc_form_zip1{
+  width: 80px !important ;
+  margin-right: 10px;
+}
+.fc_form_zip2{
+  width: 100px !important ;
+  margin-left: 10px;
+}
+.Prefectures{
+  width: 120px !important ;
+  margin-right: 10px;
+}
+.Municipality{
+  width: 150px !important ;
+}
+
+
+
+.inputMails{
+  margin-bottom :5px;
+}
+.form-control::placeholder,
+input::placeholder{
+  color: #ddd;
+}
+

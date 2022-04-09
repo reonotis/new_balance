@@ -49,5 +49,10 @@ Route::get('/golf', 'GolfHolidayCampaignController@index')->name('golf.index');
 Route::post('golf/aplication', 'GolfHolidayCampaignController@register')->name('golf.aplication');
 Route::get('golf/complete', 'GolfHolidayCampaignController@complete')->name('golf.complete');
 
-// php artisan make:model Models/GolfHolidayCampaign -mc
+// night_run_pack
+Route::get('/night_run_pack', 'NightRunPackCampaignController@index')->name('night_run_pack.index');
+Route::post('night_run_pack/register', 'NightRunPackCampaignController@register')->name('night_run_pack.register');
+Route::get('night_run_pack/complete', 'NightRunPackCampaignController@complete')->name('night_run_pack.complete');
+
+// php artisan make:model Models/NightRunPack -mc
 // php artisan make:controller AdminGolfController
