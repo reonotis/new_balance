@@ -257,10 +257,12 @@ class NightRunPackCampaignController extends Controller
     public function sendReportMail()
     {
         Log::info('sendReportMail');
+        $sexName = \App\Consts\InputValidation::SEX_LIST[$this->_sex];
         $data = [
             "name" => $this->_f_name . " " .$this->_l_name,
             "read" => $this->_f_read . " " .$this->_l_read,
-            // "size" => $this->_size,
+            "age" => $this->_age,
+            "sex_name" => $sexName,
             "zip"  => $this->_zip21 . "-" .$this->_zip22 ,
             "streetAddress"  => $this->_pref21 . "" .$this->_addr21 . "" .$this->_street21 ,
             "tel"  => $this->_tel,

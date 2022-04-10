@@ -38,7 +38,7 @@
                     <div class='itemTitle'>ご年齢</div>
                     <div class='itemContent'>
                         <div class='inputName' >
-                            <input type='number' name='age' value='{{ old("age") }}' class='fc_form1' placeholder='35' >歳
+                            <input type='number' name='age' value='{{ old("age") }}' class='fc_form1' placeholder='35' min='1' >歳
                         </div>
                     </div>
                 </div>
